@@ -1,0 +1,54 @@
+<HTML>
+    <HEAD>
+        <STYLE>
+            table{
+                font-family: Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            td, th{
+                border: 1px solid #DDDDDD;
+                text-align: left;
+                padding: 8px;
+            }
+        </STYLE>
+    </HEAD>
+    <BODY>
+        <H3 style="text-align: center;">CFMS</H3>
+        <TABLE>
+            <TR>
+                <TH>Name: <%= name %></TH>
+                <TH>Email: <%= email %></TH>
+            </TR>
+            <TR>
+                <TH>Contact Number: <%= contact_number %></TH>
+                <TH>Payment Method: <%= payment_method %></TH>
+            </TR>
+        </TABLE>
+        <H3>Product Details:</H3>
+        <TABLE>
+            <TR>
+                <TH>Name</TH>
+                <TH>Category</TH>
+                <TH>Quantity</TH>
+                <TH>Price</TH>
+                <TH>Sub Total</TH>
+            </TR>
+            <% if(productDetails.length > 0){ %>
+                <% productDetails.forEach(product => { %> 
+                    <TR>
+                        <TD><%= product.name %></TD>
+                        <TD><%= product.category %></TD>
+                        <TD><%= product.quantity %></TD>
+                        <TD><%= product.price %></TD>
+                        <TD><%= product.total %></TD>
+                    </TR>
+                <% }); %>
+            <% } %>
+        </TABLE>
+        <H3>
+            Total: <%= total_amount %>
+        </H3>
+        <H3>Thank you for visiting. Please visit Again.</H3>
+    </BODY>
+</HTML>
